@@ -5,3 +5,8 @@ book/fonts/
 book/cover/
 book/shop/
 book/mockups/*.png
+book/en/chunks/
+book/en/out/
+book/en/source_pl.json
+book/en/translation_en.json
+book/en/build/
