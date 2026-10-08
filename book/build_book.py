@@ -106,7 +106,7 @@ li {{ margin-bottom: .2em; text-align: left; }}
 def build(pages):
     body = f"""
 <div class="front title-page"><div class="author">Joanna Dorobisz</div><h1>Cisza,<br>z której pochodzę</h1><div class="sub">Mapa powrotu do siebie</div></div>
-<div class="front copy"><p>Copyright © Joanna Dorobisz</p><p>Wszelkie prawa zastrzeżone. Żadna część tej książki nie może być powielana ani rozpowszechniana bez pisemnej zgody autorki, z wyjątkiem krótkich cytatów w recenzjach.</p><p>Książka nie zastępuje terapii ani pomocy specjalistycznej. Jeśli doświadczasz przemocy lub kryzysu, skontaktuj się ze specjalistą lub telefonem zaufania.</p><p>Let Your Soul Glow · letyoursoulglow.store</p></div>
+<div class="front copy"><p>Copyright © Joanna Dorobisz</p><p>ISBN: 9798161014752</p><p>Wszelkie prawa zastrzeżone. Żadna część tej książki nie może być powielana ani rozpowszechniana bez pisemnej zgody autorki, z wyjątkiem krótkich cytatów w recenzjach.</p><p>Książka nie zastępuje terapii ani pomocy specjalistycznej. Jeśli doświadczasz przemocy lub kryzysu, skontaktuj się ze specjalistą lub telefonem zaufania.</p><p>Let Your Soul Glow · letyoursoulglow.store</p></div>
 <div class="front toc-page"><h1>Spis treści</h1>{toc_html(pages)}</div>
 <div class="blank"></div>
 {''.join(blocks)}
