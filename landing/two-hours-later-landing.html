@@ -146,13 +146,17 @@
     .tt-btn { width: 100%; text-align: center; }
   }
 
-  .tt-parts.tt-four { grid-template-columns: repeat(4, 1fr); }
+  .tt-chapters { list-style: none; padding: 0; margin: 36px auto 0; max-width: 860px; background: #fffdf8; border: 1px solid var(--tt-line); border-radius: 14px; }
+  .tt-chapters li { display: grid; grid-template-columns: 56px 1fr 1.2fr; gap: 20px; align-items: baseline; padding: 20px 26px; border-bottom: 1px solid var(--tt-line); }
+  .tt-chapters li:last-child { border-bottom: 0; }
+  .tt-chapters .n { font-family: "Lora", serif; font-size: 28px; color: var(--tt-coral); font-weight: 700; }
+  .tt-chapters b { font-family: "Lora", serif; font-size: 20px; color: var(--tt-teal); line-height: 1.3; }
+  .tt-chapters .d { font-size: 16px; color: var(--tt-muted); }
   .tt-test { font-family: "Lora", serif; font-size: 26px; color: var(--tt-teal); font-style: italic; margin: 6px 0 18px; }
   .tt-cross { background: var(--tt-cream-2); border: 1px solid var(--tt-line); border-radius: 14px; padding: 26px; display: flex; gap: 22px; align-items: center; max-width: 760px; margin: 0 auto; }
   .tt-cross img { width: 110px; border-radius: 4px; box-shadow: 0 10px 24px rgba(0,0,0,.18); }
   .tt-cross a { color: var(--tt-coral); font-weight: 600; }
-  @media (max-width: 820px) { .tt-parts.tt-four { grid-template-columns: 1fr 1fr; } .tt-cross { flex-direction: column; text-align: center; } }
-  @media (max-width: 480px) { .tt-parts.tt-four { grid-template-columns: 1fr; } }
+  @media (max-width: 820px) { .tt-chapters li { grid-template-columns: 40px 1fr; gap: 4px 14px; padding: 18px; } .tt-chapters .d { grid-column: 2; } .tt-cross { flex-direction: column; text-align: center; } }
 </style>
 
 <div class="tt-lp">
@@ -227,16 +231,16 @@
         <span class="tt-eyebrow">What's inside</span>
         <h2 style="font-size: clamp(30px, 4.2vw, 42px);">Eight short chapters, one moment each</h2>
       </div>
-      <div class="tt-parts tt-four">
-        <div class="tt-part"><b>1 · The reply that arrives two hours later</b><span>Why the perfect sentence turns up once the face in front of you is gone.</span></div>
-        <div class="tt-part"><b>2 · The yes you didn't mean</b><span>The yes tax, and the pause sentence that buys you time with manners.</span></div>
-        <div class="tt-part"><b>3 · Guilt is not evidence</b><span>Guilt tells you someone is unhappy. It does not tell you that you did something wrong.</span></div>
-        <div class="tt-part"><b>4 · The over-explained no</b><span>Why the paragraph of reasons makes a no weaker, and what to send instead.</span></div>
-        <div class="tt-part"><b>5 · When they push back</b><span>The sigh, the history, the verdict, the why and the silence.</span></div>
-        <div class="tt-part"><b>6 · The face you learned</b><span>Why you can say no to a waiter, and become eleven years old when your mother asks about Sunday.</span></div>
-        <div class="tt-part"><b>7 · Dating and the audition</b><span>Saying what you want on a date, without performing for approval.</span></div>
-        <div class="tt-part"><b>8 · Going back</b><span>A yes is a decision you made with partial information. You are allowed to update it.</span></div>
-      </div>
+      <ol class="tt-chapters">
+        <li><span class="n">1</span><b>The reply that arrives two hours later</b><span class="d">Why the perfect sentence turns up once the face in front of you is gone.</span></li>
+        <li><span class="n">2</span><b>The yes you didn't mean</b><span class="d">The yes tax, and the pause sentence that buys you time with manners.</span></li>
+        <li><span class="n">3</span><b>Guilt is not evidence</b><span class="d">Guilt tells you someone is unhappy. It does not tell you that you did something wrong.</span></li>
+        <li><span class="n">4</span><b>The over-explained no</b><span class="d">Why the paragraph of reasons makes a no weaker, and what to send instead.</span></li>
+        <li><span class="n">5</span><b>When they push back</b><span class="d">The sigh, the history, the verdict, the why and the silence.</span></li>
+        <li><span class="n">6</span><b>The face you learned</b><span class="d">Why you can say no to a waiter, and become eleven years old when your mother asks about Sunday.</span></li>
+        <li><span class="n">7</span><b>Dating and the audition</b><span class="d">Saying what you want on a date, without performing for approval.</span></li>
+        <li><span class="n">8</span><b>Going back</b><span class="d">A yes is a decision you made with partial information. You are allowed to update it.</span></li>
+      </ol>
     </div>
   </section>
 
