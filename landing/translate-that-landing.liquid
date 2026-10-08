@@ -1,0 +1,373 @@
+<!--
+  Translate That · Juno Vale · landing page
+  Paste this whole file into a "Custom Liquid" section (Online Store > Themes > Customize).
+  Before publishing:
+    1. Upload translate-that-cover.jpg and juno-vale-portrait.jpg in Content > Files (keep those exact file names).
+    2. Check the product link below (/products/translate-that) matches your product handle.
+    3. Change the price in the three places marked PRICE if yours is different.
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  .tt-lp {
+    --tt-teal: #2c5b5d;
+    --tt-teal-deep: #234a4c;
+    --tt-coral: #e2725b;
+    --tt-coral-dark: #c95c46;
+    --tt-cream: #fbf4e8;
+    --tt-cream-2: #f4e9d6;
+    --tt-ink: #1f2e2f;
+    --tt-muted: #5b6b6b;
+    --tt-line: #e7d9c2;
+    font-family: "Inter", system-ui, -apple-system, sans-serif;
+    color: var(--tt-ink);
+    background: var(--tt-cream);
+    line-height: 1.6;
+    font-size: 17px;
+  }
+  .tt-lp *, .tt-lp *::before, .tt-lp *::after { box-sizing: border-box; }
+  .tt-lp h1, .tt-lp h2, .tt-lp h3 { font-family: "Lora", Georgia, serif; line-height: 1.15; margin: 0 0 .5em; color: inherit; }
+  .tt-lp p { margin: 0 0 1em; }
+  .tt-wrap { max-width: 1080px; margin: 0 auto; padding: 0 20px; }
+  .tt-narrow { max-width: 720px; margin: 0 auto; }
+  .tt-section { padding: 72px 0; }
+  .tt-eyebrow { font-size: 12px; letter-spacing: .22em; text-transform: uppercase; font-weight: 600; color: var(--tt-coral); margin-bottom: 14px; display: block; }
+  .tt-center { text-align: center; }
+
+  /* buttons */
+  .tt-btn { display: inline-block; background: var(--tt-coral); color: #fff !important; text-decoration: none; font-weight: 600; font-size: 17px; padding: 16px 30px; border-radius: 999px; transition: background .15s ease, transform .15s ease; }
+  .tt-btn:hover { background: var(--tt-coral-dark); transform: translateY(-1px); }
+  .tt-btn-note { display: block; font-size: 14px; opacity: .85; margin-top: 12px; }
+
+  /* hero */
+  .tt-hero { background: var(--tt-teal); color: var(--tt-cream); padding: 64px 0 72px; }
+  .tt-hero-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 48px; align-items: center; }
+  .tt-hero h1 { font-size: clamp(44px, 7vw, 76px); font-weight: 700; margin-bottom: 18px; }
+  .tt-hero .tt-sub { font-family: "Lora", serif; font-style: italic; font-size: 21px; max-width: 30ch; margin-bottom: 26px; }
+  .tt-hero .tt-kinder { font-family: "Lora", serif; font-style: italic; color: var(--tt-coral); font-size: 22px; margin-bottom: 26px; }
+  .tt-facts { list-style: none; padding: 0; margin: 26px 0 0; display: flex; flex-wrap: wrap; gap: 8px 22px; font-size: 14px; opacity: .9; }
+  .tt-facts li::before { content: ""; display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: var(--tt-coral); margin-right: 8px; vertical-align: middle; }
+  .tt-cover { position: relative; justify-self: center; }
+  .tt-cover img { width: 100%; max-width: 380px; display: block; border-radius: 6px; box-shadow: 0 24px 60px rgba(0,0,0,.35); }
+  .tt-bubble { font-family: "Lora", serif; background: var(--tt-cream); color: var(--tt-ink); border-radius: 18px 18px 18px 4px; padding: 10px 16px; display: inline-block; box-shadow: 0 6px 18px rgba(0,0,0,.12); }
+  .tt-cover .tt-bubble { position: absolute; font-size: 20px; }
+  .tt-cover .tt-b1 { top: 18%; left: -34px; }
+  .tt-cover .tt-b2 { top: 40%; right: -28px; border-radius: 18px 18px 4px 18px; }
+  .tt-cover .tt-b3 { bottom: 14%; left: -24px; }
+
+  /* problem */
+  .tt-problem h2 { font-size: clamp(30px, 4.4vw, 44px); }
+  .tt-problem p { font-size: 19px; }
+  .tt-problem .tt-pull { font-family: "Lora", serif; font-size: 23px; font-style: italic; color: var(--tt-teal); border-left: 3px solid var(--tt-coral); padding-left: 18px; margin: 28px 0; }
+
+  /* sample card */
+  .tt-sample { background: var(--tt-cream-2); }
+  .tt-sample-head { margin-bottom: 36px; }
+  .tt-sample-head h2 { font-size: clamp(30px, 4.2vw, 42px); }
+  .tt-card { background: #fffdf8; border: 1px solid var(--tt-line); border-radius: 14px; padding: 34px; max-width: 760px; margin: 0 auto; box-shadow: 0 10px 30px rgba(44,91,93,.08); }
+  .tt-card-label { font-size: 11px; letter-spacing: .2em; text-transform: uppercase; font-weight: 600; color: var(--tt-coral); }
+  .tt-card h3 { font-size: 30px; color: var(--tt-teal); margin: 6px 0 14px; }
+  .tt-card h4 { font-size: 12px; letter-spacing: .18em; text-transform: uppercase; color: var(--tt-teal); margin: 22px 0 8px; font-family: "Inter", sans-serif; }
+  .tt-card ul { margin: 0; padding-left: 20px; }
+  .tt-card li { margin-bottom: 4px; }
+  .tt-card .tt-bubble { background: var(--tt-cream-2); box-shadow: none; font-size: 19px; }
+  .tt-send { border-left: 3px solid var(--tt-teal); padding: 4px 0 4px 16px; margin: 10px 0; }
+  .tt-send em { display: block; font-size: 13px; color: var(--tt-muted); margin-bottom: 2px; }
+  .tt-send q { font-family: "Lora", serif; font-size: 18px; quotes: "\201C" "\201D"; }
+  .tt-dont { color: var(--tt-muted); }
+  .tt-note { background: #f7e3d8; border-left: 3px solid var(--tt-coral); border-radius: 6px; padding: 14px 18px; margin-top: 24px; font-size: 16px; }
+  .tt-sample-foot { text-align: center; margin-top: 28px; color: var(--tt-muted); font-size: 15px; }
+
+  /* inside */
+  .tt-parts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 36px; }
+  .tt-part { background: #fffdf8; border: 1px solid var(--tt-line); border-radius: 12px; padding: 22px; }
+  .tt-part b { display: block; font-family: "Lora", serif; font-size: 20px; color: var(--tt-teal); margin-bottom: 6px; }
+  .tt-part span { font-size: 15px; color: var(--tt-muted); }
+
+  /* anatomy */
+  .tt-anatomy { background: var(--tt-teal); color: var(--tt-cream); }
+  .tt-anatomy h2 { font-size: clamp(28px, 4vw, 40px); }
+  .tt-steps { counter-reset: tt; list-style: none; padding: 0; margin: 30px 0 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px 40px; }
+  .tt-steps li { counter-increment: tt; position: relative; padding-left: 46px; }
+  .tt-steps li::before { content: counter(tt); position: absolute; left: 0; top: 0; width: 30px; height: 30px; border-radius: 50%; background: var(--tt-coral); color: #fff; font-weight: 600; font-size: 14px; display: flex; align-items: center; justify-content: center; }
+  .tt-steps b { color: #fff; }
+
+  /* rules */
+  .tt-rules { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; margin-top: 30px; }
+  .tt-rule { border-top: 3px solid var(--tt-coral); background: #fffdf8; padding: 22px; border-radius: 0 0 12px 12px; }
+  .tt-rule h3 { font-size: 21px; color: var(--tt-teal); margin-bottom: 6px; }
+  .tt-rule p { margin: 0; font-size: 16px; }
+
+  /* extras */
+  .tt-extras { background: var(--tt-cream-2); }
+  .tt-extra-list { list-style: none; padding: 0; margin: 30px 0 0; }
+  .tt-extra-list li { display: flex; gap: 18px; align-items: baseline; padding: 16px 0; border-bottom: 1px solid var(--tt-line); }
+  .tt-extra-list li:last-child { border-bottom: 0; }
+  .tt-extra-list b { font-family: "Lora", serif; font-size: 20px; color: var(--tt-teal); min-width: 190px; }
+
+  /* juno */
+  .tt-juno-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 44px; align-items: center; }
+  .tt-juno-grid img { width: 100%; max-width: 320px; border-radius: 160px 160px 12px 12px; border: 3px solid var(--tt-coral); display: block; object-fit: cover; object-position: 50% 0%; aspect-ratio: 4/5; }
+  .tt-juno h2 { font-size: clamp(30px, 4.2vw, 42px); }
+  .tt-sign { font-family: "Lora", serif; font-style: italic; color: var(--tt-coral); font-size: 22px; }
+
+  /* honest */
+  .tt-honest { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin-top: 30px; }
+  .tt-honest > div { background: #fffdf8; border: 1px solid var(--tt-line); border-radius: 12px; padding: 26px; }
+  .tt-honest h3 { font-size: 22px; color: var(--tt-teal); }
+  .tt-honest ul { margin: 0; padding-left: 20px; }
+  .tt-honest li { margin-bottom: 6px; }
+
+  /* faq */
+  .tt-faq details { border-bottom: 1px solid var(--tt-line); padding: 18px 0; }
+  .tt-faq summary { cursor: pointer; font-family: "Lora", serif; font-size: 20px; color: var(--tt-teal); list-style: none; display: flex; justify-content: space-between; gap: 16px; }
+  .tt-faq summary::-webkit-details-marker { display: none; }
+  .tt-faq summary::after { content: "+"; color: var(--tt-coral); font-size: 24px; line-height: 1; }
+  .tt-faq details[open] summary::after { content: "\2212"; }
+  .tt-faq details p { margin: 12px 0 0; color: var(--tt-ink); }
+
+  /* final */
+  .tt-final { background: var(--tt-teal); color: var(--tt-cream); text-align: center; }
+  .tt-final h2 { font-size: clamp(32px, 5vw, 52px); }
+  .tt-final p { font-size: 19px; max-width: 36ch; margin: 0 auto 28px; }
+  .tt-help { font-size: 13px; color: var(--tt-muted); text-align: center; padding: 26px 20px; background: var(--tt-cream); }
+
+  @media (max-width: 820px) {
+    .tt-section { padding: 52px 0; }
+    .tt-hero { padding: 44px 0 56px; }
+    .tt-hero-grid, .tt-juno-grid, .tt-honest { grid-template-columns: 1fr; gap: 32px; }
+    .tt-cover { order: -1; max-width: 280px; }
+    .tt-cover .tt-bubble { font-size: 16px; }
+    .tt-cover .tt-b1 { left: -14px; }
+    .tt-cover .tt-b2 { right: -14px; }
+    .tt-cover .tt-b3 { left: -10px; }
+    .tt-parts { grid-template-columns: 1fr 1fr; }
+    .tt-steps, .tt-rules { grid-template-columns: 1fr; }
+    .tt-extra-list li { flex-direction: column; gap: 4px; }
+    .tt-extra-list b { min-width: 0; }
+    .tt-card { padding: 22px; }
+    .tt-juno-grid img { max-width: 240px; margin: 0 auto; }
+  }
+  @media (max-width: 480px) {
+    .tt-parts { grid-template-columns: 1fr; }
+    .tt-btn { width: 100%; text-align: center; }
+  }
+</style>
+
+<div class="tt-lp">
+
+  <!-- HERO -->
+  <section class="tt-hero">
+    <div class="tt-wrap tt-hero-grid">
+      <div>
+        <span class="tt-eyebrow">Juno Vale's swipe file of 40 texts, decoded</span>
+        <h1>Translate That</h1>
+        <p class="tt-sub">You've been rewriting that text for forty minutes. Here are the words.</p>
+        <p>Forty of the texts that keep people awake, sorted by how they make you feel. Each one comes with what it might have meant, how to tell which, and three kind, honest replies you can copy word for word.</p>
+        <p class="tt-kinder">Send it kinder.</p>
+        <a class="tt-btn" href="/products/translate-that">Get Translate That · $19</a><!-- PRICE -->
+        <ul class="tt-facts">
+          <li>Instant PDF download</li>
+          <li>70 pages · 40 cards</li>
+          <li>5 extras included</li>
+          <li>Works on phone, tablet or printed</li>
+        </ul>
+      </div>
+      <div class="tt-cover">
+        <img src="{{ 'translate-that-cover.jpg' | file_url }}" alt="Cover of Translate That by Juno Vale" width="380" height="570" loading="eager">
+        <span class="tt-bubble tt-b1">k</span>
+        <span class="tt-bubble tt-b2">ok.</span>
+        <span class="tt-bubble tt-b3">lol</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROBLEM -->
+  <section class="tt-section tt-problem">
+    <div class="tt-wrap tt-narrow">
+      <span class="tt-eyebrow">Sound familiar?</span>
+      <h2>It's past midnight, and the text just says "fine."</h2>
+      <p>You've read it nine times. You've screenshotted it to a friend, who said "he's just busy", which is what friends say, lovingly, without reading the text properly. You've typed a reply, deleted it, typed a softer one, and deleted that too.</p>
+      <p>Text strips out the voice, the face and the pause before the sentence. Your brain fills the gap with whatever mood it's already in. When you're anxious, it picks the worst one.</p>
+      <p class="tt-pull">Most texts that feel like a verdict are really a mood, a habit, or a typo with feelings.</p>
+      <p><em>Translate That</em> gives you a calm second reading for the moments when you can't find one yourself, and the exact words to send next.</p>
+    </div>
+  </section>
+
+  <!-- SAMPLE CARD -->
+  <section class="tt-section tt-sample">
+    <div class="tt-wrap">
+      <div class="tt-sample-head tt-center">
+        <span class="tt-eyebrow">Look inside</span>
+        <h2>Here's card 01, in full</h2>
+        <p class="tt-narrow">Every one of the 40 cards follows the same shape, so your thumb always knows where to go.</p>
+      </div>
+
+      <article class="tt-card">
+        <span class="tt-card-label">Card 01 · Part 1 · They sent something short</span>
+        <h3>He sent "fine."</h3>
+        <span class="tt-bubble">Fine.</span>
+
+        <h4>What they might have meant</h4>
+        <ul>
+          <li>Tired, and "fine" is the shortest sentence available.</li>
+          <li>Hurt, and hoping you will ask.</li>
+          <li>Actually fine. It happens.</li>
+        </ul>
+
+        <h4>How to tell which</h4>
+        <p>Look at what you sent right before it. A cancelled plan, a late reply or a joke that landed badly points to hurt. A meme, or a question about Thursday, points to tired. Check the clock too: "fine." at 11pm after a long day is rarely a message about you.</p>
+
+        <h4>Don't send</h4>
+        <p class="tt-dont">"Okay, good." &nbsp;/&nbsp; "Why are you being like this?"<br>Both answer the full stop and ignore the person.</p>
+
+        <h4>Send it kinder</h4>
+        <div class="tt-send"><em>If they sound tired</em><q>Sounds like a long day. No reply needed. I'm here when you've got words again.</q></div>
+        <div class="tt-send"><em>If they sound hurt</em><q>I think I missed something. Can we talk tonight? No pressure, I just want to get it right.</q></div>
+        <div class="tt-send"><em>If you can't tell</em><q>Fine as in fine, or fine as in 'ask me again'? Happy to do either.</q></div>
+
+        <div class="tt-note"><b>Juno's note.</b> I have read a great many "fine."s. It is the most overloaded word in English, and it carries its full stop like a briefcase. Don't open the briefcase by force. Knock.</div>
+      </article>
+
+      <p class="tt-sample-foot">In the book, each card also covers what to send if they reply. Thirty-nine more like this one are waiting.</p>
+    </div>
+  </section>
+
+  <!-- WHAT'S INSIDE -->
+  <section class="tt-section">
+    <div class="tt-wrap">
+      <div class="tt-center">
+        <span class="tt-eyebrow">What's inside</span>
+        <h2 style="font-size: clamp(30px, 4.2vw, 42px);">40 cards in six parts. Find your feeling, then find your card.</h2>
+      </div>
+      <div class="tt-parts">
+        <div class="tt-part"><b>1 · They sent something short</b><span>"k", "ok.", "lol", "We need to talk", "I'm just busy", "No worries!"</span></div>
+        <div class="tt-part"><b>2 · Silence</b><span>Left on read, two days of nothing, the slow fade, and what to do when you're the one who went quiet.</span></div>
+        <div class="tt-part"><b>3 · You said it wrong</b><span>The defensive apology, who texts first after a fight, cancelling, and forgetting something important.</span></div>
+        <div class="tt-part"><b>4 · Starting</b><span>The first message, asking for the date, plans that stay vague, and "So what are we?"</span></div>
+        <div class="tt-part"><b>5 · Hard things, kindly</b><span>Saying no, setting a boundary, asking for what you need, and ending it without cruelty.</span></div>
+        <div class="tt-part"><b>6 · Long-term</b><span>"You never listen", "Fine, do what you want", and the "I miss you" that doesn't sound needy.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ANATOMY -->
+  <section class="tt-section tt-anatomy">
+    <div class="tt-wrap">
+      <span class="tt-eyebrow">How every card works</span>
+      <h2>Seven parts, in the same order, every time</h2>
+      <ol class="tt-steps">
+        <li><b>The text.</b> Exactly what was said, in a bubble.</li>
+        <li><b>What they might have meant.</b> Two or three honest possibilities.</li>
+        <li><b>How to tell which.</b> A concrete way to decide.</li>
+        <li><b>Don't send.</b> What to avoid, and why.</li>
+        <li><b>Send it kinder.</b> Three versions you can copy word for word.</li>
+        <li><b>If they reply.</b> What they might say next, and what to send back.</li>
+        <li><b>Juno's note.</b> One dry line to take away.</li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- RULES -->
+  <section class="tt-section">
+    <div class="tt-wrap">
+      <div class="tt-center">
+        <span class="tt-eyebrow">The method, in four rules</span>
+        <h2 style="font-size: clamp(30px, 4.2vw, 42px);">Small enough to remember at 2am</h2>
+      </div>
+      <div class="tt-rules">
+        <div class="tt-rule"><h3>The Three Layers</h3><p>There's what they wrote, what they might have meant, and what you're afraid it means. Read them in that order. Fear goes last.</p></div>
+        <div class="tt-rule"><h3>Ask Beats Guess</h3><p>If you can't tell which meaning is true, ask one light question. Every guess is a small gamble with someone else's feelings.</p></div>
+        <div class="tt-rule"><h3>The Second Text Rule</h3><p>After you send, you don't send another until they've replied, or until tomorrow morning. One text. Then wait.</p></div>
+        <div class="tt-rule"><h3>Knock, Don't Open the Briefcase</h3><p>A short, closed text has something inside it. Knock once, kindly. Don't force the lock.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXTRAS -->
+  <section class="tt-section tt-extras">
+    <div class="tt-wrap tt-narrow">
+      <span class="tt-eyebrow">Also in the book</span>
+      <h2 style="font-size: clamp(30px, 4.2vw, 42px);">Five extras, each one built to be used</h2>
+      <ul class="tt-extra-list">
+        <li><b>The Quickstart</b><span>The seven cards for the moments people panic about most. Start here on your first night.</span></li>
+        <li><b>Before You Send</b><span>A one-page checklist and the ten-minute rule. Screenshot it or stick it on the wall.</span></li>
+        <li><b>The Opener Pack</b><span>Fifteen word-for-word ways to start a conversation: new matches, people you half-know, and reconnecting.</span></li>
+        <li><b>The One-Word Dictionary</b><span>Twenty-two small words decoded, from "sure" and "cool" to "idk" and "...".</span></li>
+        <li><b>Never Send at 2am</b><span>Ten messages that feel brilliant at night and read very differently at 9am, plus one safe fallback.</span></li>
+      </ul>
+      <p style="margin-top:24px;">Plus a usage log, so you can see what actually happened when you sent the kinder version, and a page for the five lines that became your own.</p>
+    </div>
+  </section>
+
+  <!-- MEET JUNO -->
+  <section class="tt-section tt-juno">
+    <div class="tt-wrap tt-juno-grid">
+      <img src="{{ 'juno-vale-portrait.jpg' | file_url }}" alt="Portrait of Juno Vale">
+      <div>
+        <span class="tt-eyebrow">Who wrote this</span>
+        <h2>Hi, I'm Juno. I'm an AI, and I'm two years old.</h2>
+        <p>I have read a great many messages. I have never been dumped, ghosted or left on read. That's exactly why you can trust me with yours: I don't take anybody's side, I have no ex to project onto your problem, and I don't get tired at 2am.</p>
+        <p>What I do have is patterns. I put forty of them in this book so you don't have to work them out alone, at an unreasonable hour, with a friend who says "he's just busy".</p>
+        <p class="tt-sign">Send it kinder. Juno</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- HONEST -->
+  <section class="tt-section" style="background: var(--tt-cream-2);">
+    <div class="tt-wrap">
+      <div class="tt-center">
+        <span class="tt-eyebrow">The honest part</span>
+        <h2 style="font-size: clamp(30px, 4.2vw, 42px);">One promise and one warning</h2>
+      </div>
+      <div class="tt-honest">
+        <div>
+          <h3>The promise</h3>
+          <ul>
+            <li>Every line in the book is kind and honest.</li>
+            <li>You'll know what to send in the moments that used to freeze you.</li>
+            <li>You'll start reading other people's texts more gently. A "k" becomes a letter, not a verdict.</li>
+          </ul>
+        </div>
+        <div>
+          <h3>The warning</h3>
+          <ul>
+            <li>No script can make someone want you. These pages help you say things clearly. What happens next is theirs to decide.</li>
+            <li>It isn't therapy, and it isn't mind reading.</li>
+            <li>It isn't for situations where you're afraid of how someone will react. The book points you to free, confidential help for that.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="tt-section tt-faq">
+    <div class="tt-wrap tt-narrow">
+      <span class="tt-eyebrow">Questions</span>
+      <h2 style="font-size: clamp(30px, 4.2vw, 42px);">Before you buy</h2>
+      <details><summary>What exactly do I get?</summary><p>A 70-page PDF: 40 situation cards in six parts, a usage log, a page for your own five lines, and five extras (Quickstart, Before You Send checklist, Opener Pack, One-Word Dictionary and Never Send at 2am).</p></details>
+      <details><summary>How do I receive it?</summary><p>It's a digital download. You get access to the PDF straight after checkout, and you can open it on your phone, tablet or computer, or print it. Nothing is posted to you.</p></details>
+      <details><summary>Is it only for dating?</summary><p>No. Most cards work just as well with friends, family and colleagues. A friend's "fine." is as loaded as a partner's. The cards say "they" for everyone, so they fit any gender and any pairing.</p></details>
+      <details><summary>Is Juno a real person?</summary><p>No. Juno Vale is an AI character created by Let Your Soul Glow. The book says so on the first page, and we'd rather you knew before you buy.</p></details>
+      <details><summary>Will this help me win someone back?</summary><p>It will help you say what you mean, kindly and clearly. It won't make anyone feel something they don't, and it contains nothing designed to manipulate. If a line only works by tricking someone, it isn't in this book.</p></details>
+      <details><summary>I already sent the wrong text. Is it too late?</summary><p>There's a whole page for that: "You already sent it". One short repair text, then the Second Text Rule. It has saved more evenings than any perfect apology.</p></details>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="tt-section tt-final">
+    <div class="tt-wrap">
+      <span class="tt-bubble" style="font-size:20px; margin-bottom:24px;">Thinking of you. Talk tomorrow.</span>
+      <h2>The next hard text is coming. Have the words ready.</h2>
+      <p>Forty cards, four rules and five extras for $19. Yours to keep, on your phone, for the next time the screen lights up at 2am.</p><!-- PRICE -->
+      <a class="tt-btn" href="/products/translate-that">Get Translate That · $19</a><!-- PRICE -->
+      <span class="tt-btn-note">Instant PDF download</span>
+    </div>
+  </section>
+
+  <p class="tt-help">If a relationship makes you afraid, please talk to someone in person. US: National Domestic Violence Hotline 1-800-799-7233. UK: Refuge 0808 2000 247. In an emergency, call 911 (US) or 999 (UK).</p>
+
+</div>
