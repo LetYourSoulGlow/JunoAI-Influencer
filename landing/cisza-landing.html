@@ -1,0 +1,214 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  .ci { --ink:#24221f; --dark:#2b2a28; --gold:#e8c27a; --amber:#c98a2e; --amber-d:#a8701f; --cream:#faf6ef; --cream2:#f2ebdf; --muted:#6b655c; --line:#e6dccb;
+    font-family:"Inter",system-ui,sans-serif; color:var(--ink); background:var(--cream); line-height:1.65; font-size:17px; }
+  .ci *, .ci *::before, .ci *::after { box-sizing:border-box; }
+  .ci h1, .ci h2, .ci h3 { font-family:"Lora",Georgia,serif; line-height:1.2; margin:0 0 .5em; color:inherit; font-weight:600; }
+  .ci p { margin:0 0 1em; }
+  .ci-wrap { max-width:1080px; margin:0 auto; padding:0 20px; }
+  .ci-narrow { max-width:720px; margin:0 auto; }
+  .ci-sec { padding:72px 0; }
+  .ci-eyebrow { display:block; font-size:12px; letter-spacing:.22em; text-transform:uppercase; font-weight:600; color:var(--amber); margin-bottom:14px; }
+  .ci-center { text-align:center; }
+  .ci-btn { display:inline-block; background:var(--amber); color:#fff !important; text-decoration:none; font-weight:600; padding:16px 30px; border-radius:999px; transition:background .15s; }
+  .ci-btn:hover { background:var(--amber-d); }
+  .ci-btn.ghost { background:transparent; color:var(--cream) !important; border:1px solid rgba(250,246,239,.55); }
+  .ci-btn.ghost[aria-disabled="true"] { cursor:default; opacity:.75; }
+  .ci-btns { display:flex; flex-wrap:wrap; gap:12px; margin-top:8px; }
+  .ci-hero { background:linear-gradient(160deg,#3a3936 0%,#2b2a28 55%,#4a3b25 100%); color:var(--cream); padding:64px 0 72px; }
+  .ci-hero-grid { display:grid; grid-template-columns:1.05fr .95fr; gap:48px; align-items:center; }
+  .ci-hero h1 { font-size:clamp(40px,6.4vw,66px); color:var(--gold); margin-bottom:10px; }
+  .ci-hero .sub { font-family:"Lora",serif; font-style:italic; font-size:22px; margin-bottom:22px; }
+  .ci-hero .author { letter-spacing:.3em; text-transform:uppercase; font-size:13px; opacity:.85; margin-bottom:18px; display:block; }
+  .ci-hero img { width:100%; max-width:440px; display:block; border-radius:10px; box-shadow:0 24px 60px rgba(0,0,0,.4); justify-self:center; }
+  .ci-facts { list-style:none; padding:0; margin:22px 0 0; display:flex; flex-wrap:wrap; gap:6px 20px; font-size:14px; opacity:.9; }
+  .ci-facts li::before { content:""; display:inline-block; width:6px; height:6px; border-radius:50%; background:var(--gold); margin-right:8px; vertical-align:middle; }
+  .ci-quote { font-family:"Lora",serif; font-size:clamp(24px,3.4vw,34px); line-height:1.35; color:var(--dark); text-align:center; }
+  .ci-quote span { display:block; font-family:"Inter",sans-serif; font-size:14px; letter-spacing:.15em; text-transform:uppercase; color:var(--muted); margin-top:18px; }
+  .ci-about h2 { font-size:clamp(28px,4vw,40px); }
+  .ci-about p { font-size:18px; }
+  .ci-pull { font-family:"Lora",serif; font-style:italic; font-size:21px; color:var(--amber-d); border-left:3px solid var(--gold); padding-left:18px; margin:26px 0; }
+  .ci-excerpt { background:var(--cream2); }
+  .ci-page { background:#fffdf8; border:1px solid var(--line); border-radius:12px; padding:40px 44px; max-width:680px; margin:0 auto; font-family:"Lora",serif; font-size:18px; line-height:1.75; box-shadow:0 10px 30px rgba(43,42,40,.08); }
+  .ci-page .lbl { font-family:"Inter",sans-serif; font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:var(--amber); display:block; margin-bottom:4px; }
+  .ci-page h3 { font-size:24px; margin-bottom:22px; }
+  .ci-page p { text-indent:1.2em; margin:0; }
+  .ci-page p.first { text-indent:0; }
+  .ci-page .fade { color:var(--muted); font-style:italic; margin-top:18px; text-indent:0; font-family:"Inter",sans-serif; font-size:14px; }
+  .ci-toc { list-style:none; padding:0; margin:34px auto 0; max-width:860px; background:#fffdf8; border:1px solid var(--line); border-radius:14px; }
+  .ci-toc li { display:grid; grid-template-columns:64px 1fr; gap:16px; align-items:baseline; padding:15px 24px; border-bottom:1px solid var(--line); }
+  .ci-toc li:last-child { border-bottom:0; }
+  .ci-toc .n { font-family:"Lora",serif; font-size:22px; color:var(--amber); font-weight:600; }
+  .ci-toc b { font-family:"Lora",serif; font-weight:600; font-size:18px; color:var(--dark); }
+  .ci-ex { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin-top:32px; }
+  .ci-ex div { background:#fffdf8; border-top:3px solid var(--gold); border-radius:0 0 12px 12px; padding:22px; }
+  .ci-ex h3 { font-size:20px; color:var(--dark); margin-bottom:6px; }
+  .ci-ex p { margin:0; font-size:16px; color:var(--muted); }
+  .ci-gallery { display:grid; grid-template-columns:1fr 1fr; gap:18px; max-width:760px; margin:30px auto 0; }
+  .ci-gallery img { width:100%; display:block; border-radius:12px; aspect-ratio:4/5; object-fit:cover; }
+  .ci-author { background:var(--dark); color:var(--cream); }
+  .ci-author-grid { display:grid; grid-template-columns:.75fr 1.25fr; gap:44px; align-items:center; }
+  .ci-author img { width:100%; max-width:320px; border-radius:14px; display:block; }
+  .ci-author h2 { font-size:clamp(28px,4vw,40px); color:var(--gold); }
+  .ci-author a { color:var(--gold); }
+  .ci-honest { max-width:760px; margin:0 auto; background:#fffdf8; border:1px solid var(--line); border-radius:12px; padding:26px 30px; font-size:16px; }
+  .ci-honest h3 { font-size:20px; }
+  .ci-honest ul { margin:0; padding-left:20px; }
+  .ci-final { background:linear-gradient(160deg,#3a3936 0%,#2b2a28 60%,#4a3b25 100%); color:var(--cream); text-align:center; }
+  .ci-final h2 { font-size:clamp(30px,4.6vw,46px); color:var(--gold); }
+  .ci-final p { font-size:19px; max-width:40ch; margin:0 auto 26px; }
+  .ci-final .ci-btns { justify-content:center; }
+  @media (max-width:820px) {
+    .ci-sec { padding:52px 0; }
+    .ci-hero-grid, .ci-author-grid { grid-template-columns:1fr; gap:32px; }
+    .ci-hero img { order:-1; max-width:320px; }
+    .ci-ex { grid-template-columns:1fr; }
+    .ci-page { padding:26px 22px; }
+    .ci-toc li { grid-template-columns:44px 1fr; padding:14px 18px; }
+    .ci-author img { max-width:240px; margin:0 auto; }
+  }
+  @media (max-width:480px) { .ci-btn { width:100%; text-align:center; } .ci-gallery { grid-template-columns:1fr; } }
+</style>
+
+<div class="ci">
+
+  <section class="ci-hero">
+    <div class="ci-wrap ci-hero-grid">
+      <div>
+        <span class="author">Joanna Dorobisz</span>
+        <h1>Cisza, z której pochodzę</h1>
+        <p class="sub">Mapa powrotu do siebie</p>
+        <p>Osobista historia o dorastaniu w domu, w którym milczenie było jedyną ochroną, i o drodze od trybu przetrwania do życia. Z ćwiczeniami, które pomogą Ci przejść tę drogę we własnym tempie.</p>
+        <div class="ci-btns">
+          <a class="ci-btn" href="https://ridero.eu/pl/books/cisza_z_ktorej_pochodze_1/" target="_blank" rel="noopener">Kup w Ridero</a>
+          <span class="ci-btn ghost" aria-disabled="true">Wkrótce na Amazonie</span>
+        </div>
+        <ul class="ci-facts">
+          <li>Książka w języku polskim</li>
+          <li>15 rozdziałów z ćwiczeniami</li>
+          <li>Miękka i twarda oprawa</li>
+        </ul>
+      </div>
+      <img src="https://cdn.shopify.com/s/files/1/0987/5537/9535/files/cisza-mockup-tablet.jpg?v=1791479314" alt="Cisza, z której pochodzę, Joanna Dorobisz">
+    </div>
+  </section>
+
+  <section class="ci-sec">
+    <div class="ci-wrap ci-narrow">
+      <p class="ci-quote">„Wyłącza czucie. Nie dlatego, że jesteś słaba. Ale dlatego, że jesteś silna.”<span>z rozdziału 1</span></p>
+    </div>
+  </section>
+
+  <section class="ci-sec ci-about" style="padding-top:0;">
+    <div class="ci-wrap ci-narrow">
+      <span class="ci-eyebrow">O książce</span>
+      <h2>Od zamrożenia do życia</h2>
+      <p>Dorastałam w domu, w którym słowa były ostrzejsze niż nóż, a milczenie było jedynym schronieniem. Przez lata żyłam w trybie przetrwania: funkcjonowałam, uśmiechałam się, wykonywałam obowiązki, ale nie czułam.</p>
+      <p>Ta książka to zapis mojej drogi. Piszę w niej o tym, co dzieje się z dzieckiem, które musi wyłączyć emocje, żeby przetrwać, i o tym, jak dorosła kobieta może je odzyskać. Uczciwie, bez upiększeń i z czułością dla każdej, która rozpozna w tych stronach siebie.</p>
+      <p class="ci-pull">To nie jest poradnik o tym, jak „naprawić się” w tydzień. To mapa powrotu do siebie.</p>
+      <p>Przeprowadzę Cię przez temat DDA i złożonej traumy, przez dziedzictwo przodków i ustawienia systemowe, aż po pracę z wewnętrznym dzieckiem, ciałem i zamrożonymi emocjami.</p>
+    </div>
+  </section>
+
+  <section class="ci-sec ci-excerpt">
+    <div class="ci-wrap">
+      <div class="ci-center" style="margin-bottom:32px;">
+        <span class="ci-eyebrow">Fragment</span>
+        <h2 style="font-size:clamp(28px,4vw,40px);">Przeczytaj początek</h2>
+      </div>
+      <article class="ci-page">
+        <span class="lbl">Rozdział 1</span>
+        <h3>Moja historia: od przetrwania do życia</h3>
+        <p class="first">Każda opowieść o uzdrowieniu zaczyna się od miejsca, które bolało. Od chwili, w której coś w nas pękło, albo raczej pękało przez lata, tak powoli, że nie zauważyłyśmy, kiedy przestałyśmy czuć. Przestałyśmy marzyć. Przestałyśmy być sobą.</p>
+        <p>Ja też kiedyś nie czułam.</p>
+        <p>Nie potrafiłam.</p>
+        <p>Dorastałam w świecie, który nie był bezpieczny. W domu, gdzie słowa były ostrzejsze niż nóż, a milczenie matki bolało bardziej niż krzyk. Gdzie trzeba było być dorosłym, zanim nauczyło się pisać. Gdzie bycie dzieckiem było luksusem, na który nie mogłam sobie pozwolić.</p>
+        <p>Moje ciało żyło, funkcjonowało, wykonywało obowiązki, ale dusza była zamknięta w skorupie. Twardej, chłodnej, pancernej. Tak właśnie nauczyłam się, jak przeżyć.</p>
+        <p class="fade">Dalszy ciąg w książce.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="ci-sec">
+    <div class="ci-wrap">
+      <div class="ci-center">
+        <span class="ci-eyebrow">Spis treści</span>
+        <h2 style="font-size:clamp(28px,4vw,40px);">15 rozdziałów, jedna droga</h2>
+      </div>
+      <ol class="ci-toc">
+        <li><span class="n">1</span><b>Moja historia: od przetrwania do życia</b></li>
+        <li><span class="n">2</span><b>Czy to naprawdę było „normalne”?</b></li>
+        <li><span class="n">3</span><b>Rany, które milczą: DDA, c-PTSD i toksyczne schematy</b></li>
+        <li><span class="n">4</span><b>Przodkowie mówią przez nasze życie</b></li>
+        <li><span class="n">5</span><b>Ustawienia Systemowe: głos rodu, który chce być usłyszany</b></li>
+        <li><span class="n">6</span><b>Twoje miejsce w systemie: jesteś we właściwym miejscu</b></li>
+        <li><span class="n">7</span><b>Nie jesteś swoją matką. Nie jesteś swoim ojcem</b></li>
+        <li><span class="n">8</span><b>Co nie moje, oddaję. Co moje, odzyskuję</b></li>
+        <li><span class="n">9</span><b>Wewnętrzne dziecko: klucz do Twojej prawdy</b></li>
+        <li><span class="n">10</span><b>Ciało pamięta wszystko</b></li>
+        <li><span class="n">11</span><b>Zamrożone emocje: jak je poczuć i przeżyć bez lęku</b></li>
+        <li><span class="n">12</span><b>Twoja nowa tożsamość: kim jesteś bez swojej historii bólu?</b></li>
+        <li><span class="n">13</span><b>Od marzeń do kreacji: jak tworzyć życie, którego pragniesz</b></li>
+        <li><span class="n">14</span><b>Nowe życie: jak utrzymać zmianę i nie wracać do starego</b></li>
+        <li><span class="n">15</span><b>Życie, które jest Twoje</b></li>
+      </ol>
+      <p class="ci-center" style="margin-top:18px; color:var(--muted); font-size:15px;">Oraz zakończenie, epilog i list do kobiety, która zdecyduje się na więcej.</p>
+    </div>
+  </section>
+
+  <section class="ci-sec" style="background:var(--cream2);">
+    <div class="ci-wrap">
+      <div class="ci-center">
+        <span class="ci-eyebrow">Nie tylko do czytania</span>
+        <h2 style="font-size:clamp(28px,4vw,40px);">Każdy rozdział kończy się ćwiczeniami</h2>
+      </div>
+      <div class="ci-ex">
+        <div><h3>Pytania refleksyjne</h3><p>Na przykład: jak wyglądało moje dzieciństwo „na papierze”, a jak naprawdę wyglądało dla mnie?</p></div>
+        <div><h3>Listy i rytuały</h3><p>List do siebie z dzieciństwa, list do mamy lub taty, symboliczne oddanie tego, co nie jest Twoje.</p></div>
+        <div><h3>Praca z ciałem</h3><p>Mapa ciała i emocji, ruch uwalniający, codzienny dialog z tym, co czujesz.</p></div>
+      </div>
+      <div class="ci-gallery">
+        <img src="https://cdn.shopify.com/s/files/1/0987/5537/9535/files/cisza-mockup-shelf.jpg?v=1791479313" alt="Cisza, z której pochodzę obok wazonu">
+        <img src="https://cdn.shopify.com/s/files/1/0987/5537/9535/files/cisza-mockup-living.jpg?v=1791479313" alt="Cisza, z której pochodzę na stole">
+      </div>
+    </div>
+  </section>
+
+  <section class="ci-sec ci-author">
+    <div class="ci-wrap ci-author-grid">
+      <img src="https://cdn.shopify.com/s/files/1/0987/5537/9535/files/joanna-dorobisz.jpg?v=1791479313" alt="Joanna Dorobisz">
+      <div>
+        <span class="ci-eyebrow" style="color:var(--gold);">O autorce</span>
+        <h2>Joanna Dorobisz</h2>
+        <p>Dorastała w domu, w którym przemoc była codziennością, a milczenie jedyną ochroną. Przez ustawienia systemowe metodą Berta Hellingera i głęboką pracę wewnętrzną przerwała ten krąg i odzyskała swój głos.</p>
+        <p>Dziś jest autorką i facylitatorką ustawień systemowych, założycielką marki Let Your Soul Glow. Pomaga kobietom odzyskać głos, czucie i prawo do własnego życia.</p>
+        <p><a href="/pages/about-us">Przeczytaj moją historię</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="ci-sec">
+    <div class="ci-wrap">
+      <div class="ci-honest">
+        <h3>Ważne</h3>
+        <ul>
+          <li>Ta książka nie zastępuje terapii ani pomocy specjalistycznej. Może być towarzyszką w drodze, ale nie jedynym wsparciem.</li>
+          <li>Jeśli doświadczasz przemocy: Niebieska Linia, 800 120 002. Wsparcie w kryzysie emocjonalnym: 116 123. W sytuacji zagrożenia życia: 112.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="ci-sec ci-final">
+    <div class="ci-wrap">
+      <h2>Twoja droga powrotu do siebie</h2>
+      <p>Jeśli rozpoznajesz siebie w tej ciszy, ta książka jest dla Ciebie.</p>
+      <div class="ci-btns">
+        <a class="ci-btn" href="https://ridero.eu/pl/books/cisza_z_ktorej_pochodze_1/" target="_blank" rel="noopener">Kup w Ridero</a>
+        <span class="ci-btn ghost" aria-disabled="true">Wkrótce na Amazonie</span>
+      </div>
+    </div>
+  </section>
+
+</div>
