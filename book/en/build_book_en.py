@@ -110,7 +110,7 @@ li {{ margin-bottom: .2em; text-align: left; }}
 
 def build(pages):
     body = f"""
-<div class="front title-page"><div class="author">Joanna Dorobisz</div><h1>The Silence<br>I Come From</h1><div class="sub">A Map Back to Yourself</div></div>
+<div class="front title-page"><div class="author">Joanna Dorobisz</div><h1>The Silence<br>I Come From</h1><div class="sub">Coming Back to Who You Truly Are</div></div>
 <div class="front copy"><p>Copyright © Joanna Dorobisz</p><p>ISBN: {ISBN}</p><p>Translated from the Polish <i>Cisza, z której pochodzę</i>.</p><p>All rights reserved. No part of this book may be reproduced or distributed without the author’s written permission, except for brief quotations in reviews.</p><p>This book is not a substitute for therapy or professional help. If you are experiencing abuse or are in crisis, please contact a professional or a local helpline.</p><p>Let Your Soul Glow · letyoursoulglow.store</p></div>
 <div class="front toc-page"><h1>Contents</h1>{toc_html(pages)}</div>
 <div class="blank"></div>
