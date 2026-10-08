@@ -31,10 +31,14 @@ bio = 'Joanna Dorobisz dorastała w domu, w którym milczenie było jedyną ochr
 blurb = [
  'Dorastałam w domu, w którym słowa były ostrzejsze niż nóż, a milczenie było jedynym schronieniem. Przez lata żyłam w trybie przetrwania: funkcjonowałam, uśmiechałam się, wykonywałam obowiązki, ale nie czułam.',
  'Ta książka to zapis mojej drogi od zamrożenia do życia. Piszę w niej o tym, co dzieje się z dzieckiem, które musi wyłączyć emocje, żeby przetrwać, i o tym, jak dorosła kobieta może je odzyskać. Uczciwie, bez upiększeń i z czułością dla każdej, która rozpozna w tych stronach siebie.',
- 'W książce przeprowadzę Cię przez temat DDA i złożonej traumy, przez dziedzictwo przodków i ustawienia systemowe, aż po pracę z wewnętrznym dzieckiem, ciałem i zamrożonymi emocjami. Każdy rozdział kończy się ćwiczeniami i pytaniami, które pomogą Ci przejść tę drogę we własnym tempie.',
+ 'Przeprowadzę Cię przez temat DDA i złożonej traumy, przez dziedzictwo przodków i ustawienia systemowe, aż po pracę z wewnętrznym dzieckiem, ciałem i zamrożonymi emocjami. Każdy rozdział kończy się ćwiczeniami i pytaniami, które pomogą Ci przejść tę drogę we własnym tempie.',
  'To nie jest poradnik o tym, jak „naprawić się” w tydzień. To mapa powrotu do siebie, do kobiety, która ma prawo czuć, mówić i żyć po swojemu.',
 ]
 back_w = TW + BL
+import re
+# Polish typography: keep one-letter words (w, i, z, a, o, u) with the next word
+nb = lambda t: re.sub(r'(?<!\S)([aiouwzAIOUWZ]) ', '\\1\u00a0', t)
+bio = nb(bio); blurb = [nb(x) for x in blurb]
 html = f"""<!doctype html><html lang="pl"><head><meta charset="utf-8"><link rel="stylesheet" href="file://{FONTS}">
 <style>
 @page {{ size: {W}in {H}in; margin: 0; }}
