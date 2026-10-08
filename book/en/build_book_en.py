@@ -20,6 +20,9 @@ out.mkdir(parents=True, exist_ok=True)
 FONTCSS = pathlib.Path(__file__).resolve().parent.parent / 'fonts' / 'eb-local.css'
 import os
 ISBN = os.environ.get('ISBN', '[ISBN]')
+# EBOOK=1: screen PDF for direct sale — cover first, symmetric margins, clickable contents, bookmarks
+EBOOK = os.environ.get('EBOOK') == '1'
+COVER = pathlib.Path(__file__).resolve().parent / 'build' / 'The_Silence_front_cover_1650x2550.jpg'
 
 import json as _j
 _tr = _j.load(open(src))
@@ -68,14 +71,15 @@ def toc_html(pages):
     for cid, label, title in chapters:
         pg = pages.get(cid, '')
         lab = f'<span class="tl">{esc(label)}</span>' if label else ''
-        rows.append(f'<li>{lab}<span class="tt">{esc(title)}</span><span class="pg">{pg}</span></li>')
+        rows.append(f'<li><a href="#{cid}">{lab}<span class="tt">{esc(title)}</span><span class="pg">{pg}</span></a></li>')
     return '<ol class="toc">' + ''.join(rows) + '</ol>'
 
+EB = EBOOK
 CSS = f"""
 @page {{ size: {W} {H}; margin: 0.75in 0.6in 0.85in 0.75in;
   @bottom-center {{ content: counter(page); font-family: 'EB Garamond', serif; font-size: 9.5pt; color: #444; }} }}
-@page :left {{ margin-left: 0.6in; margin-right: 0.75in; }}
-@page :right {{ margin-left: 0.75in; margin-right: 0.6in; }}
+@page :left {{ margin-left: {'0.68in' if EB else '0.6in'}; margin-right: {'0.68in' if EB else '0.75in'}; }}
+@page :right {{ margin-left: {'0.68in' if EB else '0.75in'}; margin-right: {'0.68in' if EB else '0.6in'}; }}
 @page front {{ @bottom-center {{ content: none; }} }}
 @page opener {{ @bottom-center {{ content: none; }} }}
 html {{ font-family: 'EB Garamond', serif; font-size: 11.5pt; line-height: 1.42; color: #111; }}
@@ -90,7 +94,8 @@ body {{ margin: 0; }}
 .blank {{ page: front; break-after: page; height: 1px; }}
 .toc-page h1 {{ font-size: 17pt; font-weight: 500; text-align: center; margin: 0 0 .25in; }}
 ol.toc {{ list-style: none; padding: 0; margin: 0; font-size: 9.6pt; line-height: 1.25; }}
-ol.toc li {{ display: grid; grid-template-columns: 1fr auto; column-gap: 12px; margin-bottom: 5px; break-inside: avoid; }}
+ol.toc li {{ margin-bottom: 5px; break-inside: avoid; }}
+ol.toc a {{ display: grid; grid-template-columns: 1fr auto; column-gap: 12px; color: inherit; text-decoration: none; }}
 ol.toc .tl {{ grid-column: 1 / 3; font-size: 7.5pt; letter-spacing: .15em; text-transform: uppercase; color: #555; }}
 ol.toc .tt {{ grid-column: 1; }}
 ol.toc .pg {{ grid-column: 2; text-align: right; }}
@@ -105,15 +110,20 @@ h2.ex {{ font-size: 12pt; font-weight: 500; text-align: center; letter-spacing: 
 h3 {{ font-size: 11.5pt; font-weight: 600; font-style: italic; margin: 1.1em 0 .35em; break-after: avoid; line-height: 1.3; }}
 ul {{ margin: .4em 0 .6em; padding-left: 1.3em; }}
 li {{ margin-bottom: .2em; text-align: left; }}
+.cover-page {{ page: cover; break-after: page; }}
+.cover-page img {{ display: block; width: {W}; height: {H}; object-fit: cover; }}
+@page cover {{ margin: 0; @bottom-center {{ content: none; }} }}
 .sign {{ text-indent: 0; text-align: right; font-style: italic; margin-top: .6em; }}
 """
 
 def build(pages):
-    body = f"""
+    cover = f'<div class="cover-page"><img src="file://{COVER}"></div>' if EBOOK else ''
+    blank = '' if EBOOK else '<div class="blank"></div>'
+    body = f"""{cover}
 <div class="front title-page"><div class="author">Joanna Dorobisz</div><h1>The Silence<br>I Come From</h1><div class="sub">Coming Back to Who You Truly Are</div></div>
-<div class="front copy"><p>Copyright © Joanna Dorobisz</p><p>ISBN: {ISBN}</p><p>Translated from the Polish <i>Cisza, z której pochodzę</i>.</p><p>All rights reserved. No part of this book may be reproduced or distributed without the author’s written permission, except for brief quotations in reviews.</p><p>This book is not a substitute for therapy or professional help. If you are experiencing abuse or are in crisis, please contact a professional or a local helpline.</p><p>Let Your Soul Glow · letyoursoulglow.store</p></div>
+<div class="front copy"><p>Copyright © Joanna Dorobisz</p><p>{'Paperback ISBN' if EBOOK else 'ISBN'}: {ISBN}</p><p>Translated from the Polish <i>Cisza, z której pochodzę</i>.</p><p>All rights reserved. No part of this book may be reproduced or distributed without the author’s written permission, except for brief quotations in reviews.</p><p>This book is not a substitute for therapy or professional help. If you are experiencing abuse or are in crisis, please contact a professional or a local helpline.</p><p>Let Your Soul Glow · letyoursoulglow.store</p></div>
 <div class="front toc-page"><h1>Contents</h1>{toc_html(pages)}</div>
-<div class="blank"></div>
+{blank}
 {''.join(blocks)}
 """
     return f"""<!doctype html><html lang="en"><head><meta charset="utf-8">
@@ -125,7 +135,7 @@ def render(htmlstr, pdf):
     js = f"""const {{ chromium }} = require('playwright');
 (async()=>{{const b=await chromium.launch({{executablePath:'/opt/pw-browsers/chromium'}});const p=await b.newPage();
 await p.goto('file://{(out/'book.html').resolve()}');await p.evaluate(()=>document.fonts.ready);await p.waitForTimeout(1500);
-await p.pdf({{path:'{pdf}',preferCSSPageSize:true,printBackground:true}});await b.close();}})();"""
+await p.pdf({{path:'{pdf}',preferCSSPageSize:true,printBackground:true,outline:{'true' if EBOOK else 'false'},tagged:true}});await b.close();}})();"""
     (out / 'render.js').write_text(js)
     npm_root = subprocess.check_output(['npm', 'root', '-g'], text=True).strip()
     subprocess.run(['node', str(out / 'render.js')], check=True, env={'NODE_PATH': npm_root, 'PATH': '/usr/bin:/usr/local/bin:/bin'})
@@ -148,7 +158,23 @@ def find_pages(pdf):
 pdf1 = str(out / 'pass1.pdf')
 render(build({}), pdf1)
 pages, n = find_pages(pdf1)
-final = str(out / f'The_Silence_I_Come_From_KDP_{trim}.pdf')
+final = str(out / ('The_Silence_I_Come_From_Joanna_Dorobisz_ebook.pdf' if EBOOK else f'The_Silence_I_Come_From_KDP_{trim}.pdf'))
 render(build(pages), final)
 pages2, n2 = find_pages(final)
+if EBOOK:
+    # Chromium drops the space at line breaks in bookmark titles; restore them from the source headings
+    from pypdf import PdfWriter
+    heads = ['The Silence I Come From', 'Contents'] + [t for _, _, t in chapters] + [re.sub(r'<[^>]+>', '', html.unescape(b)).replace('\u00ad', '') for b in blocks if b.startswith(('<h2', '<h3'))]
+    fix = {re.sub(r'\s+', '', h): h for h in heads}
+    w = PdfWriter(clone_from=final)
+    def walk(node):
+        while node is not None:
+            node = node.get_object()
+            t = str(node['/Title'])
+            from pypdf.generic import TextStringObject, NameObject
+            node[NameObject('/Title')] = TextStringObject(fix.get(re.sub(r'\s+', '', t), t))
+            if '/First' in node: walk(node['/First'])
+            node = node.get('/Next')
+    walk(w._root_object['/Outlines']['/First'])
+    w.write(final)
 print(json.dumps({'pages_total': n2, 'pages': pages2, 'toc_matches_pass2': pages == pages2, 'chapters': len(chapters), 'found': len(pages)}, ensure_ascii=False))
