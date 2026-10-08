@@ -1,2 +1,4 @@
 # Paid product files (sold via Shopify) - keep out of git
 products/
+book/build/
+book/fonts/
