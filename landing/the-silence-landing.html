@@ -1,0 +1,224 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  .ci { --ink:#24221f; --dark:#2b2a28; --gold:#e8c27a; --amber:#c98a2e; --amber-d:#a8701f; --cream:#faf6ef; --cream2:#f2ebdf; --muted:#6b655c; --line:#e6dccb;
+    font-family:"Inter",system-ui,sans-serif; color:var(--ink); background:var(--cream); line-height:1.65; font-size:17px; }
+  .ci *, .ci *::before, .ci *::after { box-sizing:border-box; }
+  .ci h1, .ci h2, .ci h3 { font-family:"Lora",Georgia,serif; line-height:1.2; margin:0 0 .5em; color:inherit; font-weight:600; }
+  .ci p { margin:0 0 1em; }
+  .ci-wrap { max-width:1080px; margin:0 auto; padding:0 20px; }
+  .ci-narrow { max-width:720px; margin:0 auto; }
+  .ci-sec { padding:72px 0; }
+  .ci-eyebrow { display:block; font-size:12px; letter-spacing:.22em; text-transform:uppercase; font-weight:600; color:var(--amber); margin-bottom:14px; }
+  .ci-center { text-align:center; }
+  .ci-btn { display:inline-block; background:var(--amber); color:#fff !important; text-decoration:none; font-weight:600; padding:16px 30px; border-radius:999px; transition:background .15s; }
+  .ci-btn:hover { background:var(--amber-d); }
+  .ci-btn.ghost { background:transparent; color:var(--cream) !important; border:1px solid rgba(250,246,239,.55); }
+  .ci-btn.ghost[aria-disabled="true"] { cursor:default; opacity:.75; }
+  .ci-btns { display:flex; flex-wrap:wrap; gap:12px; margin-top:8px; }
+  .ci-hero { background:linear-gradient(160deg,#3a3936 0%,#2b2a28 55%,#4a3b25 100%); color:var(--cream); padding:64px 0 72px; }
+  .ci-hero-grid { display:grid; grid-template-columns:1.05fr .95fr; gap:48px; align-items:center; }
+  .ci-hero h1 { font-size:clamp(40px,6.4vw,66px); color:var(--gold); margin-bottom:10px; }
+  .ci-hero .sub { font-family:"Lora",serif; font-style:italic; font-size:22px; margin-bottom:22px; }
+  .ci-hero .author { letter-spacing:.3em; text-transform:uppercase; font-size:13px; opacity:.85; margin-bottom:18px; display:block; }
+  .ci-hero img { width:100%; max-width:440px; display:block; border-radius:10px; box-shadow:0 24px 60px rgba(0,0,0,.4); justify-self:center; }
+  .ci-facts { list-style:none; padding:0; margin:22px 0 0; display:flex; flex-wrap:wrap; gap:6px 20px; font-size:14px; opacity:.9; }
+  .ci-facts li::before { content:""; display:inline-block; width:6px; height:6px; border-radius:50%; background:var(--gold); margin-right:8px; vertical-align:middle; }
+  .ci-quote { font-family:"Lora",serif; font-size:clamp(24px,3.4vw,34px); line-height:1.35; color:var(--dark); text-align:center; }
+  .ci-quote span { display:block; font-family:"Inter",sans-serif; font-size:14px; letter-spacing:.15em; text-transform:uppercase; color:var(--muted); margin-top:18px; }
+  .ci-about h2 { font-size:clamp(28px,4vw,40px); }
+  .ci-about p { font-size:18px; }
+  .ci-pull { font-family:"Lora",serif; font-style:italic; font-size:21px; color:var(--amber-d); border-left:3px solid var(--gold); padding-left:18px; margin:26px 0; }
+  .ci-excerpt { background:var(--cream2); }
+  .ci-page { background:#fffdf8; border:1px solid var(--line); border-radius:12px; padding:40px 44px; max-width:680px; margin:0 auto; font-family:"Lora",serif; font-size:18px; line-height:1.75; box-shadow:0 10px 30px rgba(43,42,40,.08); }
+  .ci-page .lbl { font-family:"Inter",sans-serif; font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:var(--amber); display:block; margin-bottom:4px; }
+  .ci-page h3 { font-size:24px; margin-bottom:22px; }
+  .ci-page p { text-indent:1.2em; margin:0; }
+  .ci-page p.first { text-indent:0; }
+  .ci-page .fade { color:var(--muted); font-style:italic; margin-top:18px; text-indent:0; font-family:"Inter",sans-serif; font-size:14px; }
+  .ci-toc { list-style:none; padding:0; margin:34px auto 0; max-width:860px; background:#fffdf8; border:1px solid var(--line); border-radius:14px; }
+  .ci-toc li { display:grid; grid-template-columns:64px 1fr; gap:16px; align-items:baseline; padding:15px 24px; border-bottom:1px solid var(--line); }
+  .ci-toc li:last-child { border-bottom:0; }
+  .ci-toc .n { font-family:"Lora",serif; font-size:22px; color:var(--amber); font-weight:600; }
+  .ci-toc b { font-family:"Lora",serif; font-weight:600; font-size:18px; color:var(--dark); }
+  .ci-ex { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin-top:32px; }
+  .ci-ex div { background:#fffdf8; border-top:3px solid var(--gold); border-radius:0 0 12px 12px; padding:22px; }
+  .ci-ex h3 { font-size:20px; color:var(--dark); margin-bottom:6px; }
+  .ci-ex p { margin:0; font-size:16px; color:var(--muted); }
+  .ci-spread { display:block; width:100%; max-width:900px; margin:32px auto 0; border-radius:10px; }
+  .ci-hero img { max-width:380px; border-radius:4px; }
+  .ci-lang { font-size:14px; margin-top:16px; opacity:.85; }
+  .ci-lang a { color:var(--gold); }
+    .ci-author { background:var(--dark); color:var(--cream); }
+  .ci-author-grid { display:grid; grid-template-columns:.75fr 1.25fr; gap:44px; align-items:center; }
+  .ci-author img { width:100%; max-width:320px; border-radius:14px; display:block; }
+  .ci-author h2 { font-size:clamp(28px,4vw,40px); color:var(--gold); }
+  .ci-author a { color:var(--gold); }
+  .ci-honest { max-width:760px; margin:0 auto; background:#fffdf8; border:1px solid var(--line); border-radius:12px; padding:26px 30px; font-size:16px; }
+  .ci-honest h3 { font-size:20px; }
+  .ci-honest ul { margin:0; padding-left:20px; }
+  .ci-final { background:linear-gradient(160deg,#3a3936 0%,#2b2a28 60%,#4a3b25 100%); color:var(--cream); text-align:center; }
+  .ci-final h2 { font-size:clamp(30px,4.6vw,46px); color:var(--gold); }
+  .ci-final p { font-size:19px; max-width:40ch; margin:0 auto 26px; }
+  .ci-final .ci-btns { justify-content:center; }
+  @media (max-width:820px) {
+        .ci-sec { padding:52px 0; }
+    .ci-hero-grid, .ci-author-grid { grid-template-columns:1fr; gap:32px; }
+    .ci-hero img { order:-1; max-width:320px; }
+    .ci-ex { grid-template-columns:1fr; }
+    .ci-page { padding:26px 22px; }
+    .ci-toc li { grid-template-columns:44px 1fr; padding:14px 18px; }
+    .ci-author img { max-width:240px; margin:0 auto; }
+  }
+  @media (max-width:480px) { .ci-btn { width:100%; text-align:center; } }
+</style>
+
+<div class="ci">
+
+  <section class="ci-hero">
+    <div class="ci-wrap ci-hero-grid">
+      <div>
+        <span class="author">Joanna Dorobisz</span>
+        <h1>The Silence I Come From</h1>
+        <p class="sub">Coming Back to Who You Truly Are</p>
+        <p>A personal story of growing up in a home where silence was the only protection, and of the journey from survival mode back to life. With exercises to help you walk this path at your own pace.</p>
+        <div class="ci-btns">
+          <a class="ci-btn" href="/products/the-silence-i-come-from-ebook-pdf">Get the ebook · £7.99</a>
+        </div>
+        <ul class="ci-facts">
+          <li>English edition</li>
+          <li>15 chapters with exercises</li>
+          <li>PDF ebook, instant download</li>
+          <li>Paperback coming soon on Amazon</li>
+        </ul>
+        <p class="ci-lang">Czytasz po polsku? <a href="/pages/cisza-z-ktorej-pochodze">Cisza, z której pochodzę</a></p>
+      </div>
+      <img src="https://cdn.shopify.com/s/files/1/0987/5537/9535/files/the-silence-front-cover.jpg?v=1791483082" alt="The Silence I Come From by Joanna Dorobisz, book cover">
+    </div>
+  </section>
+
+  <section class="ci-sec">
+    <div class="ci-wrap ci-narrow">
+      <p class="ci-quote">“It switches off feeling. Not because you are weak. But because you are strong.”<span>from Chapter 1</span></p>
+    </div>
+  </section>
+
+  <section class="ci-sec ci-about" style="padding-top:0;">
+    <div class="ci-wrap ci-narrow">
+      <span class="ci-eyebrow">About the book</span>
+      <h2>From frozen to alive</h2>
+      <p>I grew up in a home where words were sharper than a knife and silence was the only shelter. For years I lived in survival mode. I functioned, I smiled, I did what was expected of me. But I didn’t feel.</p>
+      <p>This book is the story of my journey. I write about what happens to a child who has to switch off her emotions in order to survive, and about how a grown woman can get them back. Honestly, without embellishment, and with tenderness for every woman who recognises herself in these pages.</p>
+      <p class="ci-pull">This is not a guide to “fixing yourself” in a week. It’s a way back to who you truly are.</p>
+      <p>I will guide you through ACoA and complex trauma, through the legacy of your ancestors and Family Constellations, to working with your inner child, your body and your frozen emotions.</p>
+    </div>
+  </section>
+
+  <section class="ci-sec ci-excerpt">
+    <div class="ci-wrap">
+      <div class="ci-center" style="margin-bottom:32px;">
+        <span class="ci-eyebrow">Excerpt</span>
+        <h2 style="font-size:clamp(28px,4vw,40px);">Read the opening</h2>
+      </div>
+      <article class="ci-page">
+        <span class="lbl">Chapter 1</span>
+        <h3>My Story: From Surviving to Living</h3>
+        <p class="first">Every story of healing begins in the place that hurt. In the moment when something inside us broke — or rather, kept breaking for years, so slowly that we never noticed when we stopped feeling. We stopped dreaming. We stopped being ourselves.</p>
+        <p>I, too, once could not feel.</p>
+        <p>I didn’t know how.</p>
+        <p>I grew up in a world that was not safe. In a home where words were sharper than a knife, and my mother’s silence hurt more than shouting. Where you had to be a grown-up before you had learned to write. Where being a child was a luxury I could not afford.</p>
+        <p>My body lived, functioned, carried out its duties — but my soul was locked inside a shell. Hard, cold, armoured. That was how I learned to survive.</p>
+        <p class="fade">Continued in the book.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="ci-sec">
+    <div class="ci-wrap">
+      <div class="ci-center">
+        <span class="ci-eyebrow">Contents</span>
+        <h2 style="font-size:clamp(28px,4vw,40px);">15 chapters, one path</h2>
+      </div>
+      <ol class="ci-toc">
+        <li><span class="n">1</span><b>My Story: From Surviving to Living</b></li>
+        <li><span class="n">2</span><b>Was It Really “Normal”?</b></li>
+        <li><span class="n">3</span><b>Silent Wounds: ACoA, C-PTSD and Toxic Patterns</b></li>
+        <li><span class="n">4</span><b>Our Ancestors Speak Through Our Lives</b></li>
+        <li><span class="n">5</span><b>Family Constellations: the Voice of the Family Line That Wants to Be Heard</b></li>
+        <li><span class="n">6</span><b>Your Place in the System: You Are Exactly Where You Belong</b></li>
+        <li><span class="n">7</span><b>You Are Not Your Mother. You Are Not Your Father</b></li>
+        <li><span class="n">8</span><b>What Is Not Mine, I Give Back. What Is Mine, I Reclaim</b></li>
+        <li><span class="n">9</span><b>The Inner Child: the Key to Your Truth</b></li>
+        <li><span class="n">10</span><b>The Body Remembers Everything</b></li>
+        <li><span class="n">11</span><b>Frozen Emotions: How to Feel Them and Live Through Them Without Fear</b></li>
+        <li><span class="n">12</span><b>Your New Identity: Who Are You Without Your Story of Pain?</b></li>
+        <li><span class="n">13</span><b>From Dreams to Creation: How to Build the Life You Long For</b></li>
+        <li><span class="n">14</span><b>A New Life: How to Sustain Change and Not Slip Back Into the Old</b></li>
+        <li><span class="n">15</span><b>A Life That Is Yours</b></li>
+      </ol>
+      <p class="ci-center" style="margin-top:18px; color:var(--muted); font-size:15px;">Plus a conclusion, an epilogue and a letter to the woman who decides on more.</p>
+    </div>
+  </section>
+
+  <section class="ci-sec" style="background:var(--cream2);">
+    <div class="ci-wrap">
+      <div class="ci-center">
+        <span class="ci-eyebrow">Not just for reading</span>
+        <h2 style="font-size:clamp(28px,4vw,40px);">Every chapter ends with exercises</h2>
+      </div>
+      <div class="ci-ex">
+        <div><h3>Reflective questions</h3><p>For example: what did my childhood look like “on paper”, and what was it really like for me?</p></div>
+        <div><h3>Letters and rituals</h3><p>A letter to your younger self, a letter to your mum or dad, symbolically giving back what was never yours.</p></div>
+        <div><h3>Body work</h3><p>A map of your body and emotions, releasing movement, a daily dialogue with what you feel.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="ci-sec ci-ebook">
+    <div class="ci-wrap">
+      <div class="ci-center">
+        <span class="ci-eyebrow">The ebook</span>
+        <h2 style="font-size:clamp(28px,4vw,40px);">Start reading today</h2>
+        <p class="ci-narrow">132 pages as a PDF, with clickable contents and bookmarks, easy to read on your phone, tablet or computer. You can download it straight after purchase.</p>
+      </div>
+      <img class="ci-spread" src="https://cdn.shopify.com/s/files/1/0987/5537/9535/files/silence-ebook-pages-2000x1500.jpg?v=1791482852" alt="The Silence I Come From: contents page and the opening of Chapter 1">
+      <div class="ci-center" style="margin-top:30px;"><a class="ci-btn" href="/products/the-silence-i-come-from-ebook-pdf">Get the ebook · £7.99</a></div>
+    </div>
+  </section>
+
+  <section class="ci-sec ci-author">
+    <div class="ci-wrap ci-author-grid">
+      <img src="https://cdn.shopify.com/s/files/1/0987/5537/9535/files/joanna-dorobisz.jpg?v=1791479313" alt="Joanna Dorobisz">
+      <div>
+        <span class="ci-eyebrow" style="color:var(--gold);">About the author</span>
+        <h2>Joanna Dorobisz</h2>
+        <p>She grew up in a home where violence was part of everyday life and silence was the only protection. Through Family Constellations, following Bert Hellinger’s method, and deep inner work, she broke the cycle and found her voice.</p>
+        <p>Today she is an author, a Family Constellations facilitator and the founder of Let Your Soul Glow. She helps women reclaim their voice, their feelings and the right to their own lives.</p>
+        <p><a href="/pages/about-us">Read my story</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="ci-sec">
+    <div class="ci-wrap">
+      <div class="ci-honest">
+        <h3>Please note</h3>
+        <ul>
+          <li>This book is not a substitute for therapy or professional help. It can be a companion on your way, but not your only support.</li>
+          <li>In the UK: National Domestic Abuse Helpline 0808 2000 247 (free, 24/7). Samaritans 116 123 (free, 24/7). In an emergency, call 999. Outside the UK, please contact your local helpline or emergency services.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="ci-sec ci-final">
+    <div class="ci-wrap">
+      <h2>Your way back to yourself</h2>
+      <p>If you recognise yourself in this silence, this book is for you.</p>
+      <div class="ci-btns">
+        <a class="ci-btn" href="/products/the-silence-i-come-from-ebook-pdf">Get the ebook · £7.99</a>
+      </div>
+    </div>
+  </section>
+
+</div>
