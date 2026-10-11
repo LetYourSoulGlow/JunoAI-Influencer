@@ -17,6 +17,8 @@ src, out = sys.argv[1], pathlib.Path(sys.argv[2])
 trim = sys.argv[3] if len(sys.argv) > 3 else "a5"
 W, H = TRIMS[trim]
 out.mkdir(parents=True, exist_ok=True)
+import os
+ISBN = os.environ.get('ISBN', '9798161014752')
 FONTCSS = pathlib.Path(__file__).resolve().parent / 'fonts' / 'eb-local.css'
 
 paras = [p.text.strip() for p in docx.Document(src).paragraphs]
@@ -106,7 +108,7 @@ li {{ margin-bottom: .2em; text-align: left; }}
 def build(pages):
     body = f"""
 <div class="front title-page"><div class="author">Joanna Dorobisz</div><h1>Cisza,<br>z której pochodzę</h1><div class="sub">Mapa powrotu do siebie</div></div>
-<div class="front copy"><p>Copyright © Joanna Dorobisz</p><p>ISBN: 9798161014752</p><p>Wszelkie prawa zastrzeżone. Żadna część tej książki nie może być powielana ani rozpowszechniana bez pisemnej zgody autorki, z wyjątkiem krótkich cytatów w recenzjach.</p><p>Książka nie zastępuje terapii ani pomocy specjalistycznej. Jeśli doświadczasz przemocy lub kryzysu, skontaktuj się ze specjalistą lub telefonem zaufania.</p><p>Let Your Soul Glow · letyoursoulglow.store</p></div>
+<div class="front copy"><p>Copyright © Joanna Dorobisz</p><p>ISBN: {ISBN}</p><p>Wszelkie prawa zastrzeżone. Żadna część tej książki nie może być powielana ani rozpowszechniana bez pisemnej zgody autorki, z wyjątkiem krótkich cytatów w recenzjach.</p><p>Książka nie zastępuje terapii ani pomocy specjalistycznej. Jeśli doświadczasz przemocy lub kryzysu, skontaktuj się ze specjalistą lub telefonem zaufania.</p><p>Let Your Soul Glow · letyoursoulglow.store</p></div>
 <div class="front toc-page"><h1>Spis treści</h1>{toc_html(pages)}</div>
 <div class="blank"></div>
 {''.join(blocks)}
@@ -143,7 +145,7 @@ def find_pages(pdf):
 pdf1 = str(out / 'pass1.pdf')
 render(build({}), pdf1)
 pages, n = find_pages(pdf1)
-final = str(out / f'Cisza_z_ktorej_pochodze_KDP_{trim}.pdf')
+final = str(out / f'Cisza_z_ktorej_pochodze_KDP_{trim}{os.environ.get("SUFFIX", "")}.pdf')
 render(build(pages), final)
 pages2, n2 = find_pages(final)
 print(json.dumps({'pages_total': n2, 'pages': pages2, 'toc_matches_pass2': pages == pages2, 'chapters': len(chapters), 'found': len(pages)}, ensure_ascii=False))
