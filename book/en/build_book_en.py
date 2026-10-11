@@ -158,7 +158,7 @@ def find_pages(pdf):
 pdf1 = str(out / 'pass1.pdf')
 render(build({}), pdf1)
 pages, n = find_pages(pdf1)
-final = str(out / ('The_Silence_I_Come_From_Joanna_Dorobisz_ebook.pdf' if EBOOK else f'The_Silence_I_Come_From_KDP_{trim}.pdf'))
+final = str(out / ('The_Silence_I_Come_From_Joanna_Dorobisz_ebook.pdf' if EBOOK else f'The_Silence_I_Come_From_KDP_{trim}{os.environ.get("SUFFIX", "")}.pdf'))
 render(build(pages), final)
 pages2, n2 = find_pages(final)
 if EBOOK:
