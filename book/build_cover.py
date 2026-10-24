@@ -60,7 +60,7 @@ html, body {{ margin: 0; }}
 <div class="back">
   <div class="bio"><img src="file://{work / 'photo.jpg'}"><p>{bio}</p></div>
   <div class="blurb">{''.join(f'<p>{p}</p>' for p in blurb)}</div>
-  <div class="web">letyoursoulglow.store</div>
+  <div class="web">letyoursoulglow.net</div>
 </div>
 <div class="spine"><div>Cisza, z której pochodzę <b>Joanna Dorobisz</b></div></div>
 <img class="front" src="file://{work / 'front.jpg'}">
