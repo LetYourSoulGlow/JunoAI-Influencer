@@ -93,6 +93,7 @@ All text spelled exactly as written, sharp and legible on a phone. No other peop
 
 - v1 (list layout, Juno 1 bottom right) — Higgsfield job `2c4104e1-bd9f-4e6f-8b5c-b1ebaa73d087`. Text OK. Ran as Nano Banana 2 (2 credits).
 - v2 (2×3 illustrated grid for cinemagraph) — Higgsfield job `88d20765-9f2c-49b6-9cf9-14a6113ab19e`.
+- v2 video — Kling 3.0, 5 s, 9:16, start image = v2 (10 credits) — job `c7687dcc-d52f-4709-9713-1a189ab4fcf0`.
 
 ## v2 idea — cinemagraph ("only the living bits move")
 
