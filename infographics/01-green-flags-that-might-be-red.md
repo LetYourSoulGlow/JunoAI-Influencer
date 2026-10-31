@@ -121,3 +121,5 @@ Cinemagraph. The whole infographic layout, all cards, all text and all colours s
 2. Video: Kling 3.0, 5 s, start_image = the static image, cinemagraph prompt (10 credits).
    Result: text stayed sharp, Juno blinks and her face stays the same, soft card-shuffle sound. Approved.
 3. If Higgsfield suggests a preset (e.g. "IN THE DARK"), decline it and generate literally.
+4. Lesson from infographic 02: always zoom in and check every line of the STATIC image before spending credits on video.
+   If text is garbled, regenerate the image with GPT Image 2 (quality high, 2k, ~6.5 credits) — best text rendering.
