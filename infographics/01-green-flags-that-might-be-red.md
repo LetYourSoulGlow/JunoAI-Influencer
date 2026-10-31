@@ -60,3 +60,31 @@ Vertical 9:16 mobile graphic, 1080x1920, warm cream background (#fbf4e8), subtle
 ```
 Smooth, calm infographic animation. The headline fades in first, then the five cards slide up one by one. On each card the green flag gently flips over and turns coral, and the right-hand text appears with a soft typewriter reveal. Finally the teal bottom band rises in. Static camera, no zoom, no distortion of text, gentle easing, cosy and minimal.
 ```
+
+## Prompt D — full infographic WITH Juno (Higgsfield Element)
+
+Juno in Higgsfield: Elements `juno-vale1`, `juno-vale2`, `juno-vale3`
+(juno-vale3 = id `bba4c788-1bea-4db5-b907-6f15012e4b1b`).
+Look: late twenties, warm medium-brown skin, short curly hair with honey-blonde tips,
+round tortoiseshell glasses, beauty mark on left cheekbone, coral heart pin, mustard knit cardigan.
+Models that accept Elements: Nano Banana Pro, Nano Banana 2, GPT Image 2, Seedream 4.5.
+In the Higgsfield app, tag her as @juno-vale3 in the prompt.
+
+```
+Vertical 9:16 mobile infographic, 1080x1920, clean modern editorial design. Warm cream background (#fbf4e8) with subtle paper grain. Palette: deep teal (#2c5b5d), soft coral (#e2725b), cream, dark ink (#1f2e2f). Elegant serif headings (like Lora), clean sans-serif body (like Inter), soft shadows, rounded corners.
+
+Top: large teal serif headline "Green flags that might be red flags", small italic subtitle "Sweet once. Worrying as a pattern."
+
+Middle: five stacked cards. Left half of each card: sage-green chat bubble with a tiny green flag icon. Right half: coral-tinted panel with a tiny coral flag icon. A small arrow between them.
+1: "They text you all day" → "Checking in, or checking up?"
+2: "\"You're the one\" after a week" → "Fast isn't the same as deep."
+3: "All their exes were \"crazy\"" → "Who is never at fault?"
+4: "Jealous \"because they care\"" → "Care asks. Control demands."
+5: "They want every free minute" → "Do you still see your friends?"
+
+Bottom right: @juno-vale3, shown from the waist up, friendly knowing half-smile, one eyebrow slightly raised, holding a small coral flag, wearing her mustard knit cardigan, round tortoiseshell glasses and coral heart pin. Same face and hair as the reference. Soft studio light that matches the cream background, as if she is standing in front of the infographic.
+
+Bottom: teal band with cream serif text "One moment is a mood. A pattern is a flag." and small text "— Juno · Send it kinder."
+
+All text spelled exactly as written, sharp and legible on a phone. No other people, no extra text, no watermark.
+```
