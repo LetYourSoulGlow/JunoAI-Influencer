@@ -113,3 +113,11 @@ Illustrations and their motion:
 ```
 Cinemagraph. The whole infographic layout, all cards, all text and all colours stay completely frozen and unchanged; camera is locked, no zoom, no pan. Only small living details move, softly and in a loop: the phone screen in card 1 glows and one new message bubble pops up; the pink sand in the heart hourglass in card 2 keeps pouring; in card 3 the edge of a photo flutters slightly; the small padlock in card 4 sways gently on its chain; the notification dot in card 5 pulses. In card 6 the woman blinks naturally, her half-smile grows a little, and she gives the coral flag a slow, gentle wave. Calm, cosy, subtle motion. Text must not move, morph or change.
 ```
+
+## What worked (recipe for the next infographics)
+
+1. Static image: Nano Banana (2 credits), 9:16, Juno via Element `juno-vale1` (<<<c19a8a5c-2968-465c-98c9-c2a6d296d2f1>>>).
+   2×3 grid, painterly illustration on top of each card, Juno in the 6th tile. Text came out clean.
+2. Video: Kling 3.0, 5 s, start_image = the static image, cinemagraph prompt (10 credits).
+   Result: text stayed sharp, Juno blinks and her face stays the same, soft card-shuffle sound. Approved.
+3. If Higgsfield suggests a preset (e.g. "IN THE DARK"), decline it and generate literally.
