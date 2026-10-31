@@ -88,3 +88,27 @@ Bottom: teal band with cream serif text "One moment is a mood. A pattern is a fl
 
 All text spelled exactly as written, sharp and legible on a phone. No other people, no extra text, no watermark.
 ```
+
+## Generations log
+
+- v1 (list layout, Juno 1 bottom right) — Higgsfield job `2c4104e1-bd9f-4e6f-8b5c-b1ebaa73d087`. Text OK. Ran as Nano Banana 2 (2 credits).
+- v2 (2×3 illustrated grid for cinemagraph) — Higgsfield job `88d20765-9f2c-49b6-9cf9-14a6113ab19e`.
+
+## v2 idea — cinemagraph ("only the living bits move")
+
+Inspired by the "dog sleeping positions" infographics: layout and text stay frozen,
+only small things inside the illustrations move. Juno is the "living" element.
+
+Illustrations and their motion:
+1. Phone on a bedside table, message bubbles stacking → screen glows, a new bubble pops up.
+2. Heart-shaped hourglass → sand keeps pouring.
+3. Crumpled old photos, pointing hand → hand moves slightly, a photo edge flutters.
+4. Heart in a golden chain with padlock → padlock sways gently.
+5. Calendar full of hearts + muted group chat → notification dot pulses.
+6. Juno → blinks, small knowing smile, gently waves the coral flag.
+
+### Motion prompt (image-to-video)
+
+```
+Cinemagraph. The whole infographic layout, all cards, all text and all colours stay completely frozen and unchanged; camera is locked, no zoom, no pan. Only small living details move, softly and in a loop: the phone screen in card 1 glows and one new message bubble pops up; the pink sand in the heart hourglass in card 2 keeps pouring; in card 3 the edge of a photo flutters slightly; the small padlock in card 4 sways gently on its chain; the notification dot in card 5 pulses. In card 6 the woman blinks naturally, her half-smile grows a little, and she gives the coral flag a slow, gentle wave. Calm, cosy, subtle motion. Text must not move, morph or change.
+```
