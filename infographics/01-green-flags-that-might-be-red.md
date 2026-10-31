@@ -123,3 +123,5 @@ Cinemagraph. The whole infographic layout, all cards, all text and all colours s
 3. If Higgsfield suggests a preset (e.g. "IN THE DARK"), decline it and generate literally.
 4. Lesson from infographic 02: always zoom in and check every line of the STATIC image before spending credits on video.
    If text is garbled, regenerate the image with GPT Image 2 (quality high, 2k, ~6.5 credits) — best text rendering.
+5. Cheaper option: make the static image in ChatGPT (same GPT Image family) with Juno's profile photo attached,
+   check the text, then upload it to Higgsfield and animate with Kling 3.0. Make sure the image is vertical 9:16.

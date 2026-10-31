@@ -26,7 +26,8 @@ Format: 9:16, 2×3 grid, night mood (deep teal background, cream cards). Juno = 
 
 - v1 image — Higgsfield job `948fb916-ae15-4ed4-98fb-415ee23d4ef1` (2 credits).
 - v1 video — Kling 3.0, 5 s, 9:16 (10 credits) — job `23a2a147-25da-4654-98bb-1300072a5af3`. Result: the bold "2am" lines came out garbled (likely already wrong in the v1 image), rejected.
-- v2 image — GPT Image 2, quality high, 2k (6.5 credits) — job `d9770f79-cf0b-48bb-93bb-2c0787e654c8`. Check text BEFORE animating.
+- v2 image — GPT Image 2, quality high, 2k (6.5 credits) — job `d9770f79-cf0b-48bb-93bb-2c0787e654c8`. Text checked: OK.
+- v2 video — Kling 3.0, 5 s (10 credits) — job `ace2ebf7-8cb0-41bc-8645-a509fd3f5fa1`.
 
 ## Video cost check (5 s, 9:16, start image)
 
