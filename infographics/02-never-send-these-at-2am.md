@@ -25,6 +25,7 @@ Format: 9:16, 2×3 grid, night mood (deep teal background, cream cards). Juno = 
 ## Generations log
 
 - v1 image — Higgsfield job `948fb916-ae15-4ed4-98fb-415ee23d4ef1` (2 credits).
+- v1 video — Kling 3.0, 5 s, 9:16 (10 credits) — job `23a2a147-25da-4654-98bb-1300072a5af3`.
 
 ## Video cost check (5 s, 9:16, start image)
 
@@ -37,3 +38,8 @@ Format: 9:16, 2×3 grid, night mood (deep teal background, cream cards). Juno = 
 ```
 Cinemagraph. The whole infographic layout, all cards, all text and all colours stay completely frozen and unchanged; camera is locked, no zoom, no pan. Only small living details move, softly: clouds drift past the crescent moon in the first card and the phone on the pillow glows; the long message on the phone in the second card slowly scrolls; the candle flame in the third card flickers; the lamp light in the fourth card softly pulses; the second hand of the wall clock in the fifth card ticks. In the coral card the woman blinks naturally, breathes, and her half-smile grows a little while she holds the phone to her chest. Calm, quiet night-time mood. Text must not move, morph or change.
 ```
+
+## Idea for next infographics (from the "dog sleeping positions" reference)
+
+The reference packs more text: a "quick facts" strip under the title (3–4 small icon boxes)
+and a 1–2 line description under each card title ("What it means: ..."). Worth trying in v2 of the layout.
