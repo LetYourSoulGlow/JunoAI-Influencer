@@ -21,7 +21,7 @@ Next session:
 ## Also: Joanna's own channel (Polish)
 
 - Juno = English, Joanna = Polish. Static infographics (carousel/posts) for most; animate only the best ones.
-- Joanna's palette: gold / amber / cream on dark (book cover "Cisza, z której pochodzę"), Lora serif.
+- Joanna's colours are flexible (no fixed palette): purple/violet, dark pink, burgundy, cream, plus gold/amber from the book cover. Elegant serif (e.g. Lora). Juno stays fixed: teal / coral / cream.
 - Higgsfield Element "Joanna" exists (optional 6th tile).
 - Topic ideas from the book: family roles in an alcoholic home (favourite), "Czy to naprawdę było normalne?",
   Hellinger's Orders of Love, "Co nie moje, oddaję", "Czego potrzebowało usłyszeć Twoje wewnętrzne dziecko".
